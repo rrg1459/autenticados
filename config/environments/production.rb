@@ -89,8 +89,8 @@ config.active_record.default_timezone = :local
 	# Do not dump schema after migrations.
 	config.active_record.dump_schema_after_migration = false
 
-	config.action_mailer.default_url_options = { :host => 'https://autentica.herokuapp.com/' }
-	config.action_mailer.asset_host          = 'https://autentica.herokuapp.com/'
+	config.action_mailer.default_url_options = { :host => 'autentica.herokuapp.com/' }
+	# config.action_mailer.asset_host          = 'https://autentica.herokuapp.com/'
 	# config.action_mailer.perform_caching = false
 
 	ActionMailer::Base.delivery_method         = :smtp
