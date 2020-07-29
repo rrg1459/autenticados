@@ -95,12 +95,13 @@ config.active_record.default_timezone = :local
 
 	ActionMailer::Base.delivery_method         = :smtp
 	ActionMailer::Base.perform_deliveries      = true
-	config.action_mailer.raise_delivery_errors = true
+	ActionMailer::Base.raise_delivery_errors = true
+	ActionMailer::Base.default :charset => "utf-8"
 
 	ActionMailer::Base.smtp_settings = {
 		:address              => "smtp.gmail.com",
 		:port                 => "587",
-		:domain               => "herokuapp.com",
+		:domain               => "autentica.herokuapp.com",
 		 user_name:           ENV["GMAIL_USER"],
 		 password:            ENV["GMAIL_PASSWORD"],
 		:openssl_verify_mode  => "none",
