@@ -91,7 +91,7 @@ config.active_record.default_timezone = :local
 
 	config.action_mailer.default_url_options = { :host => 'https://autentica.herokuapp.com/' }
 	config.action_mailer.asset_host          = 'https://autentica.herokuapp.com/'
-	config.action_mailer.perform_caching = false
+	# config.action_mailer.perform_caching = false
 
 	ActionMailer::Base.delivery_method         = :smtp
 	ActionMailer::Base.perform_deliveries      = true
@@ -101,8 +101,8 @@ config.active_record.default_timezone = :local
 		:address              => "smtp.gmail.com",
 		:port                 => "587",
 		:domain               => "herokuapp.com",
-		:user_name            => "textoya1@gmail.com",
-		:password             => "0chPj9H2",
+		 user_name:           ENV["GMAIL_USER"],
+		 password:            ENV["GMAIL_PASSWORD"],
 		:openssl_verify_mode  => "none",
 		:authentication       => "plain",
 		:enable_starttls_auto => true  
