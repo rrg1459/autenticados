@@ -42,6 +42,13 @@ en:
               invalid: "La contraseña es incorrecta" 
             password_confirmation:
               confirmation: "Las contraseñas no son iguales"
+      messages:
+        carrierwave_processing_error: "No se puede cambiar el tamaño de la imagen."
+        carrierwave_integrity_error: "No es una imagen."
+        carrierwave_download_error: "No se puede descargar la imagen."
+        extension_whitelist_error: "No puedes subir archivos %{extension}, los tipos permitidos son: %{allowed_types}"
+        extension_blacklist_error: "No puedes subir archivos %{extension}, los tipos prohibidos son: %{prohibited_types}"
+
 
   time:
     formats:

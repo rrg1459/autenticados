@@ -8,10 +8,12 @@ Rails.application.routes.draw do
 	devise_for :users
 
 	resources :users, except: [:new, :create]
+	resources :posts
 
 	devise_scope :user do
 		authenticated :user do
-			root 'modulos#inicial'
+			# root 'modulos#inicial'
+			root to: 'posts#index'
 		end
 		unauthenticated :user do
 			root 'devise/sessions#new'
