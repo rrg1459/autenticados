@@ -1,33 +1,33 @@
 <%= form_for post do |f| %>
   <div>
-    <%= f.label :title %>
+    <%= f.label :Nombre %>
     <%= f.text_field :title %>
   </div>
- 
+ <br>
   <div>
-    <%= f.label :body %>
+    <%= f.label :Descripcion %>
     <%= f.text_area :body %>
   </div>
+ <br>
  
   <div>
-    <%= f.label :image %>
+    <%= f.label :Imagen %>
     <%= f.file_field :image %>
   </div>
+ <br>
  
   <% if post.image? %>
     <%= image_tag post.image.thumb.url %>
     <div>
       <%= label_tag :remove_image do %>
-        Remove image
+        Borra la imagen
         <%= f.check_box :remove_image %>
       <% end %>
     </div>
   <% end %>
+ <br>
 
-<!--   <div>
-    <%#= f.label :attachments %>
-    <%#= f.file_field :attachments, multiple: true %>
-  </div> -->
-
-  <%= f.submit %>
+  <%= f.submit 'Guarda el producto', :class => 'btn-sm btn-primary' %>
+  &nbsp;&nbsp;&nbsp;
+<%= link_to 'Ir al listado', posts_path, :class => "btn btn-success" %>
 <% end %>

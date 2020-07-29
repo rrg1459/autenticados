@@ -1,18 +1,29 @@
-<%= link_to 'All posts', posts_path %>
-<h1><%= @post.title %></h1>
+<div class="col-lg-4"></div>
+<div class="col-lg-5 well">
+
+<h4>
+Nombre:
+<%= @post.title %>
+	
  
-<%= image_tag(@post.image.url, alt: 'Image') if @post.image? %>
- 
-<p><%= @post.body %></p>
+<br>
+<br>
+Descripcion: <strong>
+	
+<%= @post.body %>
+</strong>
+</h4>
+<br>
  
 	<%= link_to(image_tag(@post.image.thumb.url, alt: 'Image'), @post.image.url, target: '_blank') if @post.image? %>
 
-<% if @post.attachments? %>
-  <ul>
-    <% @post.attachments.each do |attachment| %>
-      <li><%= link_to(image_tag(attachment.thumb.url, alt: 'Image'), attachment.url, target: '_blank') %></li>
-    <% end %>
-  </ul>
-<% end %>
+<p>
+<%= link_to 'Edita este producto', edit_post_path(@post), :class => "btn-sm btn-primary" %>
+&nbsp;&nbsp;&nbsp;
+<%= link_to 'Ir al listado', posts_path, :class => "btn-sm btn-success" %>
+	
 
-<p><%= link_to 'Edit', edit_post_path(@post) %></p>
+</p>
+
+
+</div>

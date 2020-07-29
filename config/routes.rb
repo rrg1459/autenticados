@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 		end
 	end
 
+	get   'documento'                  => 'modulos#inicial'
 	get   '/preguntas_frecuentes/'     => 'pagina#preguntas_frecuentes'
 	get   '/generar_pdf/:texto'        => 'modulos#generar_pdf',      as: 'generar_pdf'
 	patch '/nueva_clave/:id'           => 'users#nueva_clave',        as: 'nueva_clave'
