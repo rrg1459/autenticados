@@ -61,7 +61,6 @@ config.active_record.default_timezone = :local
 	# Use a real queuing backend for Active Job (and separate queues per environment)
 	# config.active_job.queue_adapter     = :resque
 	# config.active_job.queue_name_prefix = "CableChat_#{Rails.env}"
-	config.action_mailer.perform_caching = false
 
 	# Ignore bad email addresses and do not raise email delivery errors.
 	# Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -90,7 +89,23 @@ config.active_record.default_timezone = :local
 	# Do not dump schema after migrations.
 	config.active_record.dump_schema_after_migration = false
 
-#	config.action_cable.allowed_request_origins = ['https://localhost',
-#																								 'http://localhost']
+	config.action_mailer.default_url_options = { :host => 'https://autentica.herokuapp.com/' }
+	config.action_mailer.asset_host          = 'https://autentica.herokuapp.com/'
+	config.action_mailer.perform_caching = false
+
+	ActionMailer::Base.delivery_method         = :smtp
+	ActionMailer::Base.perform_deliveries      = true
+	config.action_mailer.raise_delivery_errors = true
+
+	ActionMailer::Base.smtp_settings = {
+		:address              => "smtp.gmail.com",
+		:port                 => "587",
+		:domain               => "autentica.herokuapp.com",
+		:user_name            => "textoya1@gmail.com",
+		:password             => "0chPj9H2",
+		:openssl_verify_mode  => "none",
+		:authentication       => "plain",
+		:enable_starttls_auto => true  
+	}
 
 end
