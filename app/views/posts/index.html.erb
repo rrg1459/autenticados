@@ -1,49 +1,40 @@
 
 <div class="col-lg-4"></div>
 <div class="col-lg-5 well">
-				<center>
+	<center>
 
-<h1>Listado de productos</h1>
- 
-<%= link_to 'Agrega un nuevo producto', new_post_path, :class => "btn-sm btn-primary" %>
-<br>
-<br>
- 
-<table>
-	<thead>
-		<tr>
-			<th>
-				<center>
-				<% if @posts.size > 0 %>
-					Foto
+		<h1>Listado de productos</h1>
+		<%= link_to 'Agrega un nuevo producto', new_post_path, :class => "btn-sm btn-primary" %>
+		<br>
+		<br>
+		<table>
+			<thead>
+				<tr>
+					<% if @posts.size > 0 %>
+						<th><center>ID</center></th>
+						<th><center>Foto</center></th>
+					<% end %>
+				</tr>
+			</thead>
+			<tbody>
+				<% @posts.each do |post| %>
+					<tr>
+						<td><%= post.id %></td>
+						<td>
+							<center>
+								<% if post.image.to_s.blank? %>
+									<%= truncate(post.title, length: 10) %>
+								<% else %>
+									<%= image_tag post.image.small_thumb.url %>
+								<% end %>
+							</center>
+						</td>
+						<td><%= link_to 'Mostrar', post, :class => "btn-sm btn-success" %></td>
+						<td><%= link_to 'Editar', edit_post_path(post), :class => "btn-sm btn-info" %></td>
+						<td><%= link_to 'Borrar', post, :class => "btn-sm btn-danger", method: :delete, data: { confirm: 'Esta seguro de borrar este producto?' } %></td>
+					</tr>
 				<% end %>
-				</center>
-			</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<% @posts.each do |post| %>
-			<tr>
-				<td>
-				<center>
-				<% if post.image.to_s.blank? %>
-					<%= post.title %>
-				<% else %>
-					<%= image_tag post.image.small_thumb.url %>
-				<% end %>
-				</center>
-					
-				</td>
-				<td><%= link_to 'Mostrar', post, :class => "btn-sm btn-success" %></td>
-				<td><%= link_to 'Editar', edit_post_path(post), :class => "btn-sm btn-info" %></td>
-				<td><%= link_to 'Borrar', post, :class => "btn-sm btn-danger", method: :delete, data: { confirm: 'Esta seguro de borrar este producto?' } %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-
-				</center>
-
-
+			</tbody>
+		</table>
+	</center>
 	</div>

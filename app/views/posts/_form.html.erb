@@ -1,33 +1,33 @@
 <%= form_for post do |f| %>
-  <div>
-    <%= f.label :Nombre %>
-    <%= f.text_field :title %>
-  </div>
+	<div>
+		<%= f.label :Nombre %>
+		<%= f.text_field :title, style: 'width: 100%;' %>
+	</div>
  <br>
-  <div>
-    <%= f.label :Descripcion %>
-    <%= f.text_area :body %>
-  </div>
- <br>
- 
-  <div>
-    <%= f.label :Imagen %>
-    <%= f.file_field :image %>
-  </div>
+	<div>
+		<%= f.label :Descripcion %>
+		<%= f.text_area :body, style: 'width: 100%;' %>
+	</div>
  <br>
  
-  <% if post.image? %>
-    <%= image_tag post.image.thumb.url %>
-    <div>
-      <%= label_tag :remove_image do %>
-        Borra la imagen
-        <%= f.check_box :remove_image %>
-      <% end %>
-    </div>
-  <% end %>
+	<div>
+		<%= f.label :Imagen %>
+		<%= f.file_field :image %>
+	</div>
+ <br>
+ 
+	<% if post.image? %>
+		<%= image_tag post.image.thumb.url %>
+		<div>
+			<%= label_tag :remove_image do %>
+				Borra la imagen
+				<%= f.check_box :remove_image %>
+			<% end %>
+		</div>
+	<% end %>
  <br>
 
-  <%= f.submit 'Guarda el producto', :class => 'btn-sm btn-primary' %>
-  &nbsp;&nbsp;&nbsp;
-<%= link_to 'Ir al listado', posts_path, :class => "btn btn-success" %>
+	<%= f.submit 'Guarda el producto', :class => 'btn-sm btn-primary' %>
+	&nbsp;&nbsp;&nbsp;
+	<%= link_to 'Ir al listado', posts_path, :class => "btn btn-success" %>
 <% end %>

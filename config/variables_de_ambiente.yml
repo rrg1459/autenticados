@@ -5,8 +5,3 @@ development:
 
 
 production:
-  # BASE_DE_DATOS: app_google
-  # DB_USUARIO: postgres
-  # DB_CLAVE: 123456
-  # GOOGLE_CLIENT_ID: "496719638428-j1h4hjo7tu4u40v32ojr9lfps427stag.apps.googleusercontent.com"
-  # GOOGLE_CLIENT_SECRET: "m69qI0b4-yYphhfbuappZ8ud"
