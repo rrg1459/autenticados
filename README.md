@@ -54,6 +54,8 @@ El enlace de los creadores de la gema en donde se encuentra el binario que recom
 | pry-rails | Permite usar pry como consola |
 | letter_opener | Para recibir correos localmente en desarrollo |
 | omniauth-google-oauth2 | Autenticación con google |
+| gem carrierwave | Sube archivos a una app de Ruby |
+| gem mini_magick | Manipula imagenes con uso minimo de memoria |
 
 
 **E N J O Y**

@@ -25,7 +25,12 @@
 								<% if post.image.to_s.blank? %>
 									<%= truncate(post.title, length: 10) %>
 								<% else %>
-									<%= image_tag post.image.small_thumb.url %>
+									<% existe = verifica_imagen(post.image_url) %>
+									<% if existe %>
+										<%= image_tag post.image.small_thumb.url %>
+									<% else %>
+										<%= "<i>imagen borrada<br>por heroku</i>".html_safe %>
+									<% end %>
 								<% end %>
 							</center>
 						</td>

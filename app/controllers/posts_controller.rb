@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+	include ApplicationHelper
+	
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
  
 	def index
