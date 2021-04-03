@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
 	resources :users, except: [:new, :create]
 	resources :posts
+	resources :productos
+	resources :dolars, only: [:edit, :update]
 
 	devise_scope :user do
 		authenticated :user do
@@ -16,9 +18,12 @@ Rails.application.routes.draw do
 			root to: 'posts#index'
 		end
 		unauthenticated :user do
-			root 'devise/sessions#new'
+			# root 'devise/sessions#new'
+			root 'productos#index'
 		end
 	end
+
+	get '/administradores'             => 'posts#index'
 
 	get   'documento'                  => 'modulos#inicial'
 	get   '/preguntas_frecuentes/'     => 'pagina#preguntas_frecuentes'

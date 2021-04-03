@@ -1,13 +1,26 @@
 <div class="col-lg-4"></div>
 <div class="col-lg-5 well">
 	<h4>
-		<u>Nombre:</u>
-		<%= @post.title %>
+		Nombre:
+		<strong>
+			<%= @post.title %>
+		</strong>
 		<br>
 		<br>
-		<u>Descripcion:</u> 
+		Descripcion:
 		<strong>
 			<%= @post.body %>
+		</strong>
+		<br>
+		<br>
+		<%= number_to_currency(@post.precio, :unit => "USD ", :separator => ",", :delimiter => ".") %>
+		<br>
+		<br>
+		<strong>
+		<i>
+			
+			<%= @post.publicado ? 'Está publicado' : 'Sin publicar' %>
+		</i>
 		</strong>
 	</h4>
 	<br>

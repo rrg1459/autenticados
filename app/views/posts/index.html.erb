@@ -3,23 +3,16 @@
 <div class="col-lg-5 well">
 	<center>
 
-		<h1>Listado de productos</h1>
+		<h2>Gestión de productos</h2>
+		<h3><%= number_to_currency($dolar, :unit => "USD ", :separator => ",", :delimiter => ".") %></h3>
+		<br>
 		<%= link_to 'Agrega un nuevo producto', new_post_path, :class => "btn-sm btn-primary" %>
 		<br>
 		<br>
 		<table>
-			<thead>
-				<tr>
-					<% if @posts.size > 0 %>
-						<th><center>ID</center></th>
-						<th><center>Foto</center></th>
-					<% end %>
-				</tr>
-			</thead>
 			<tbody>
 				<% @posts.each do |post| %>
 					<tr>
-						<td><%= post.id %></td>
 						<td>
 							<center>
 								<% if post.image.to_s.blank? %>
@@ -34,9 +27,12 @@
 								<% end %>
 							</center>
 						</td>
-						<td><%= link_to 'Mostrar', post, :class => "btn-sm btn-success" %></td>
-						<td><%= link_to 'Editar', edit_post_path(post), :class => "btn-sm btn-info" %></td>
-						<td><%= link_to 'Borrar', post, :class => "btn-sm btn-danger", method: :delete, data: { confirm: 'Esta seguro de borrar este producto?' } %></td>
+						<td>
+						<%= link_to 'Mostrar', post, :class => "btn-sm btn-success" %><br><br>
+						<%= link_to 'Editar', edit_post_path(post), :class => "btn-sm btn-info" %><br><br>
+						<%= link_to 'Borrar', post, :class => "btn-sm btn-danger", method: :delete, data: { confirm: 'Esta seguro de borrar este producto?' } %>
+							
+						</td>
 					</tr>
 				<% end %>
 			</tbody>

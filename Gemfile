@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 gem 'devise_invitable'
 gem 'font-awesome-rails'
@@ -24,6 +25,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'bootstrap-sass'
+gem 'bootstrap',                '~> 4.3.1'    # The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web. http://getbootstrap.com
+
 #gem 'backstretch-rails'
 
 # Use jquery as the JavaScript library

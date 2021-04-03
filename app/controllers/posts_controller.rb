@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
+
 	include ApplicationHelper
 	
+	before_action :authenticate_user!
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
  
 	def index
@@ -16,6 +18,7 @@ class PostsController < ApplicationController
 	end
  
 	def create
+		params[:post][:precio] = params[:post][:precio].to_f * 100
 		@post = Post.new(post_params)
 		@post.save ? (redirect_to posts_path, notice: 'Producto creado') : (render :new)
 	end
@@ -24,6 +27,8 @@ class PostsController < ApplicationController
 	end
  
 	def update
+		byebug
+		params[:post][:precio] = params[:post][:precio].to_f * 100
 		@post.update_attributes(post_params) ? (redirect_to post_path(@post), notice: 'Producto actualizado') : (render :edit)
 	end
 
@@ -35,7 +40,7 @@ class PostsController < ApplicationController
 	private
  
 	def post_params
-		params.require(:post).permit(:title, :body, :image, :remove_image)
+		params.require(:post).permit(:title, :body, :precio, :publicado, :image, :remove_image)
 	end
  
 	def set_post
