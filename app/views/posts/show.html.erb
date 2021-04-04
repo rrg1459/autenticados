@@ -13,13 +13,17 @@
 		</strong>
 		<br>
 		<br>
-		<%= number_to_currency(@post.precio, :unit => "USD ", :separator => ",", :delimiter => ".") %>
+		<%= number_to_currency(@post.precio.to_f/100, :unit => "USD ", :separator => ",", :delimiter => ".") %>
+		<br>
+		<br>
+		Existencia:
+		<%= @post.existencia %>
+		<%= (@post.existencia == 1) ? 'unidad' : 'unidades' %>
 		<br>
 		<br>
 		<strong>
 		<i>
-			
-			<%= @post.publicado ? 'Está publicada' : 'Sin publicar' %>
+			<%= @post.publicado ? 'Está publicada' : 'No publicada' %>
 		</i>
 		</strong>
 	</h4>

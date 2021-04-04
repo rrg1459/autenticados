@@ -4,6 +4,7 @@
 		<%= f.text_field :title, style: 'width: 100%;' %>
 	</div>
 	<br>
+
 	<div>
 		<%= f.label :Descripción %>
 		<%= f.text_area :body, style: 'width: 100%;' %>
@@ -15,6 +16,12 @@
 		<%= f.number_field :precio, value: number_to_currency(f.object.precio.to_f/100, delimiter: '', unit: ''), step: :any %>
 	</div>
 	<br> 
+
+	<div>
+		<%= f.label :existencia %>
+		<%= f.number_field :existencia %>
+	</div>
+	<br>
 
 	<div>
 		<%= f.label :Imagen %>

@@ -23,7 +23,6 @@ puts "Se carga el dolar"
 Dolar.create!(cambio: 198545075)
 
 puts "Se cargan los productos demo"
-
 Post.create!(
 	{
 		title: "Elíptica",

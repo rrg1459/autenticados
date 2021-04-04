@@ -13,7 +13,7 @@
 
 		<% if producto.publicado %>
 
-		<div class="mx-auto m-3 borde px-4">
+		<div class="mx-auto m-3 borde px-5">
 			<h4><%= producto.title %></h4>
 			<% if producto.image.to_s.blank? %>
 				<%= truncate(producto.title, length: 10) %>

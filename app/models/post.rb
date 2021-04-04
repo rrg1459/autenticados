@@ -6,6 +6,7 @@ class Post < ApplicationRecord
 
 	validates :title, presence: true, length: {minimum: 2}
 	validates :body, presence: true
+	validates :existencia, presence: true
 
 	def en_dolares
 		self.precio.to_f / 100
@@ -13,6 +14,10 @@ class Post < ApplicationRecord
 
 	def en_bolivares
 		self.precio * $dolar / 100
+	end
+
+	def publicado?
+		self.publicado ? 'Publicado' : 'No publicado'
 	end
 
 end
