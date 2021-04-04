@@ -27,7 +27,6 @@ class PostsController < ApplicationController
 	end
  
 	def update
-		byebug
 		params[:post][:precio] = params[:post][:precio].to_f * 100
 		@post.update_attributes(post_params) ? (redirect_to post_path(@post), notice: 'Producto actualizado') : (render :edit)
 	end
